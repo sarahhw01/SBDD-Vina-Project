@@ -1,5 +1,6 @@
 # SBDD-Vina-Project
-## Receptor and Ligand Preparation following this guide: https://www.cheminformania.com/ligand-docking-with-smina/
+## Receptor and Ligand Preparation 
+We followed this guide: https://www.cheminformania.com/ligand-docking-with-smina/
 In Pymol:
 - fetch 1A4G
 - remove resn HOH
