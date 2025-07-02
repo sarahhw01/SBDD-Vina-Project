@@ -4,7 +4,7 @@ from pymol import cmd
 import glob
 import argparse
 
-def compute_all_rmsd(ref_ligand_path, poses_folder):
+def compute_multiple_rmsd(ref_ligand_path, poses_folder):
     if not os.path.isfile(ref_ligand_path):
         print(f"Reference ligand file not found: {ref_ligand_path}")
         sys.exit(1)
@@ -47,4 +47,4 @@ if __name__ == "__main__":
     # Parse known args, leave unknown (pymol args) alone
     args, unknown = parser.parse_known_args()
 
-    compute_all_rmsd(args.i, args.i2)
+    compute_multiple_rmsd(args.i, args.i2)
