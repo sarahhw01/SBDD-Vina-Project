@@ -1,0 +1,22 @@
+name: vina-project
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - openbabel
+  - rdkit
+  - meeko
+  - rdkit
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyterlab
+  - ipykernel
+  - pip
+  - pip:
+      - tqdm  
+      - meeko
