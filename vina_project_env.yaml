@@ -16,6 +16,7 @@ dependencies:
   - scikit-learn
   - jupyterlab
   - ipykernel
+  - pymol-open-source
   - pip
   - pip:
       - tqdm  
