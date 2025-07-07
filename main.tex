@@ -1,0 +1,98 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{subcaption} 
+
+\usepackage{chin-report}
+
+\begin{document}
+\input{header}
+
+\begin{huge}
+	\vspace{1cm}
+	\textbf{SBDD Project}
+\end{huge} \\
+
+Authors: Sarah Hüwels, Mattes Warning, Mona Scheurenbrand
+
+\begin{large}
+	\vspace{0.5cm}
+	\textbf{Introduction}
+\end{large}	\\ [1mm]
+
+\textcolor{red}{Overview over the project and the targets.}
+
+\begin{large}
+	\vspace{0.5cm}
+	\textbf{Materials and Methods}
+\end{large}	\\ [1mm]
+
+\textbf{Protein-ligand docking}
+
+For receptor preparation, we removed all solvent molecules using Pymol. We saved the receptor molecule to a PDB file.
+For ligand preparation, we inspected the ligands and used the chains that are bound to the target. For 1A4G we used a ZMR residue in chain A. We saved the ligand molecule again as PDB file.
+
+Next, PDB files were converted into .pdbqt format using openbabel to support active torsion information and charges for atoms. 
+
+We used the Vina force field (scoring function) to do docking and a random seed = 12345 to ensure reproducible results.
+
+To assess the prediction quality, we compared the predicted pose with the experimentally observed pose of the original PDB file by calculating root-mean-square deviation (RMSD). We assumed a docking pose with RMSD < 2.0 Å to be correct.
+
+\textbf{Virtual Screening}
+
+For VS, docking of several compounds against the prepared receptor was performed. Compounds were split into known true ligands (n = 40) and known non-binders (decoys, n = 1200) and the binding affinity of the best prediction of every docked compound together with the label were merged into a final result list for ranking. 
+VS quality assessment for each receptor was performed using the receiver operating characteristic (ROC) curve and calculating the area under the curve (AUC).
+
+
+\begin{large}
+	\vspace{0.5cm}
+	\textbf{Results}
+\end{large}	\\ [1mm]
+
+\textbf{Protein-ligand docking}
+
+Protein-ligand docking was performed using the prepared receptor 1A4G - \textit{Neuraminidase} - and the prepared ligand \textit{ZMR}. The RMSD between the predicted pose and the experimentally observed pose was 0.38 Å. Thus, this predicted docking pose can be considered correct. Further, the RMSD between each possible pose and the observed pose was calculated (Table \ref{tab:rmsd}). There are poses with a lower RMSD than the energetically most favorable pose with rank 1 (RMSD: 0.38 Å). The pose with the best RMSD is pose 2 (RMSD: 0.10 Å).
+
+\begin{table}[h!]
+\centering
+\caption{RMSD values of docking poses}
+\label{tab:rmsd}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Pose} & \textbf{RMSD [\AA]} & \textbf{Predicted Binding Affinity [kcal/mol]} \\
+\hline
+1 & 0.38 & -5.079\\
+2 & 0.10 & -4.881\\
+3 & 0.37 & -4.710\\
+4 & 0.19 & -4.691\\
+5 & 0.62 & -4.676\\
+6 & 0.27 & -4.588\\
+7 & 0.71 & -4.544\\
+8 & 0.57 & -4.543\\
+9 & 0.57 & -4.285\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Virtual Screening}
+
+\textit{Neuraminidase}
+
+
+\textcolor{red}{target must be
+briefly described by the responsible person and the VS evaluation metrics must be included. Please indicate in
+the report, which group member worked out which target.}
+
+\begin{large}
+	\vspace{0.5cm}
+	\textbf{Discussion}
+\end{large}	\\ [1mm]
+
+\textcolor{red}{comment on the findings you made and to draw conclusions.}
+
+The pose ranked highest by docking score, i.e., predicted binding affinity, was not the one with the best RMSD and thus not the closest to the experimental pose. This could be explained by the simplified scoring function comprising several assumptions that AutoDock Vina uses. Since the pose with rank 2 has the lowest RMSD and only a difference in predicted binding affinity of 0.198 (pose 2: -4.881 kcal/mol, pose 1: -5.079 kcal/mol), this pose, or even an entirely different pose, might have been considered the best if more accurate models had been used. 
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
