@@ -21,3 +21,5 @@ dependencies:
   - pip:
       - tqdm  
       - meeko
+      - joblib
+      - scikit-metrics
