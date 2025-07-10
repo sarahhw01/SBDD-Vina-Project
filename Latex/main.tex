@@ -38,7 +38,7 @@ We used the Vina force field (scoring function) to do docking and a random seed 
 
 To assess the prediction quality, we compared the predicted pose with the experimentally observed pose of the original PDB file by calculating root-mean-square deviation (RMSD). We assumed a docking pose with RMSD < 2.0 Å to be correct.
 
-\textit{Target: 1OUK}
+\textit{Target: 1OUK-p38 alpha}
 
 1OUK-p38 alpha is  a human p38 alpha MAP kinase. This protein is a target for the treatment of inflammation and is therefore interesting for drug development. Molecules, that bind to this molecule, could act as inhibiors and can suppress its kinase activity. This would reduce the expression of downstream inflammatory genes. \cite{1OUK}
 
@@ -93,18 +93,32 @@ Protein-ligand docking was performed using the prepared receptor 1A4G - \textit{
 \includegraphics[width=8cm]{figures/ROC.png}
 \end{center}
 
+The Area under the curve (AUC) value describes, how well the screening can distinguish between true positives, so active compounds, and false positives, inactive compounds. For the target Neuriaminidase we get a AUC of 0.580, which suggests that the performance is slightly better than random guessing. 
+
 \textcolor{red}{target must be
 briefly described by the responsible person and the VS evaluation metrics must be included. Please indicate in
 the report, which group member worked out which target.}
+
+\textit{Target: 1OUK-p38 alpha}
+
+\begin{center}
+\includegraphics[width=8cm]{figures/ROC-1OUK.png}
+\end{center}
+
+For the target 1OUK-p38 alpha we get a AUC of 0.686, which suggests that the performance is better than random guessing, but there is still room for improvement.
 
 \begin{large}
 	\vspace{0.5cm}
 	\textbf{Discussion}
 \end{large}	\\ [1mm]
 
+The pose-prediction quality of the docking tool for the target 1A4G and the ligand ZMR produced a good result. The pose ranked highest by docking score, i.e., predicted binding affinity, was also  the one with the best RMSD and thus closest to the experimental pose. 
+
+For the Virtual Screening on the four targets, the discriminatory power of the screening is not ideal. To improve this, one could attempt optimization of the docking parameters. One point of improvement could be setting the box center and size parameters. We used a quite naive approach to set the x, y, and z centers and their sizes, so tuning here could possibly improve the performance of the screening. Another idea is to increase the exhaustiveness, which could improve the accuracy, but one would need more computational power.
+
 \textcolor{red}{comment on the findings you made and to draw conclusions.}
 
-The pose ranked highest by docking score, i.e., predicted binding affinity, was also  the one with the best RMSD and thus closest to the experimental pose.
+
 
 \textbf{Additional Targets}
 
