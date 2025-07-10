@@ -17,7 +17,12 @@ Authors: Sarah Hüwels, Mattes Warning, Mona Scheurenbrand
 	\textbf{Introduction}
 \end{large}	\\ [1mm]
 
-\textcolor{red}{Overview over the project and the targets.}
+Predicting the position and orientation of a ligand when bound to a receptor is referred to as \textbf{protein-ligand docking}.
+We investigate the quality of the widely used docking tool \textit{Autodock vina} \ref{eberhardt2021autodock} with respect to two tasks: 1) Predicting the binding pose of a known ligand and
+2) performing virtual screening (VS). Pose predicting quality is quantified by the atom root-mean-square deviation (RMSD) between docked and crystallographic poses, accepting <= 2.0 Å as successful.
+Virtual screening performance is measured by the area under the receiver-operating characteristics curve (ROC-AUC) when docking 40 know ligands and 1200 decoys.
+
+To benchmark Vina across different biological contexts, we selected four targets: 1A4G, 1OUK, 1E3G, and 1CX2. Please refer to the individual sections for more detailed descriptions of these targets.
 
 \begin{large}
 	\vspace{0.5cm}
