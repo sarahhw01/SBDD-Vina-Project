@@ -119,7 +119,7 @@ For the target 1OUK-p38 alpha we get a AUC of 0.686, which suggests that the per
 
 The pose-prediction quality of the docking tool for the target 1A4G and the ligand ZMR produced a good result. The pose ranked highest by docking score, i.e., predicted binding affinity, was also  the one with the best RMSD and thus closest to the experimental pose. 
 
-For the Virtual Screening on the four targets, the discriminatory power of the screening is not ideal. To improve this, one could attempt optimization of the docking parameters. One point of improvement could be setting the box center and size parameters. We used a quite naive approach to set the x, y, and z centers and their sizes, so tuning here could possibly improve the performance of the screening. Another idea is to increase the exhaustiveness, which could improve the accuracy, but one would need more computational power.
+In the Virtual Screening conducted on the four targets, the discriminatory power of the screening was not ideal for the targets 1A4G and 1OUK. For target 1E3G, the screening produced an acceptable AUC value and for the target 1CX2 it yielded  a high AUC value, indicating good discriminative power. These results show, that the same scoring function, in our case the vina scoring function, performs very differently across all targets. There is not one scoring function that performs optimal across all targets. To improve the screening performance for 1A4G and 1OUK, alternative scoring functions should be considered for docking.
 
 \textcolor{red}{comment on the findings you made and to draw conclusions.}
 
