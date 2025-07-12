@@ -11,6 +11,7 @@ dependencies:
   - rdkit
   - numpy
   - pandas
+  - autodock-vina
   - matplotlib
   - seaborn
   - scikit-learn
